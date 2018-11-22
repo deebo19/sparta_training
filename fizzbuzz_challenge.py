@@ -4,21 +4,37 @@
 # For numbers which are multiples of both 3 and 5, print "FizzBuzz" instead of the number.
 
 
-def print_numbers():
-    num = 1
-    while num <= 100:
-        if num % 3 == 0:
-            if num % 5 == 0:
-                print('FizzBuzz')
+class FizzBuzz:
+    start = 0
+    finish = 0
+
+    def __init__(self, start, finish):
+        self.start = start
+        self.finish = finish
+
+    def print_numbers(self):
+
+        while self.start <= self.finish:
+            if self.divisible_by_n(3):
+                if self.divisible_by_n(5):
+                    print('FizzBuzz')
+                else:
+                    print('Fizz')
+            elif self.divisible_by_n(5):
+                print('Buzz')
             else:
-                print('Fizz')
-        elif num % 5 == 0:
-            print('Buzz')
-        else:
-            print(num)
-        num = num + 1
+                print(self.start)
+            self.start += 1
+
+    def divisible_by_n(self, n):
+        if self.start % n == 0:
+            return True
+
+        return False
 
 
-print_numbers()
+x = FizzBuzz(1, 100)
+x.print_numbers()
+
 
 
